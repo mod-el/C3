@@ -1,0 +1,14 @@
+{
+	"name": "C3",
+	"description": "Integration with C3.js",
+	"version": "1.0.0",
+	"dependencies": {
+		"D3": ">=1.0.0"
+	},
+	"js": [
+		"files/c3.min.js"
+	],
+	"css": [
+		"files/c3.min.css"
+	]
+}

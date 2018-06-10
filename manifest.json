@@ -1,6 +1,6 @@
 {
 	"name": "C3",
-	"description": "Integration with C3.js",
+	"description": "Integration with C3.js (JavaScript charting library based on D3)",
 	"version": "1.0.0",
 	"dependencies": {
 		"D3": ">=1.0.0"

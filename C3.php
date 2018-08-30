@@ -109,6 +109,7 @@ class C3 extends Module
 			'id' => 'pie-chart',
 			'field' => null,
 			'label' => null,
+			'text' => null,
 			'label-type' => null,
 			'values-type' => null, // supported at the moment: price
 		], $options);
@@ -120,14 +121,21 @@ class C3 extends Module
 
 		$numbersDirection = null;
 		foreach ($list as $elIdx => $el) {
-			if (is_object($el)) {
-				$form = $el->getForm();
-				if ($form[$options['label']])
-					$label = $form[$options['label']]->getText();
+			if ($options['text']) {
+				if (!is_string($options['text']) and is_callable($options['text']))
+					$label = call_user_func($options['text'], $el);
 				else
-					$label = $el[$options['label']];
+					$label = $options['text'];
 			} else {
-				$label = $el[$options['label']] ?? '';
+				if (is_object($el)) {
+					$form = $el->getForm();
+					if ($form[$options['label']])
+						$label = $form[$options['label']]->getText();
+					else
+						$label = $el[$options['label']];
+				} else {
+					$label = $el[$options['label']] ?? '';
+				}
 			}
 
 			$value = $el[$options['field']];

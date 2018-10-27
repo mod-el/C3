@@ -5,11 +5,11 @@ use Model\Core\Module;
 class C3 extends Module
 {
 	/**
-	 * @param $list
+	 * @param iterable $list
 	 * @param array $options
 	 * @throws \Exception
 	 */
-	public function lineChart($list, array $options = [])
+	public function lineChart(iterable $list, array $options = [])
 	{
 		$options = array_merge([
 			'id' => 'line-chart',
@@ -99,11 +99,11 @@ class C3 extends Module
 	}
 
 	/**
-	 * @param $list
+	 * @param iterable $list
 	 * @param array $options
 	 * @throws \Exception
 	 */
-	public function pieChart($list, array $options = [])
+	public function pieChart(iterable $list, array $options = [])
 	{
 		$options = array_merge([
 			'id' => 'pie-chart',
